@@ -7,6 +7,7 @@ let vScale; // global video scaling variable
 let greyscale = [0, 32, 64, 96, 128, 160, 192, 224, 255];
 let myimg;
 let cnv;
+let rev = false;
 
 function preload() {
   myimg = loadImage("lanting2.jpg");
@@ -63,9 +64,17 @@ function draw() {
 
       // just two values for posterize
       if (bright > 128) {
-        fill(0);
+        if (rev === false) {
+          fill(0);
+        } else {
+          fill(255, 32);
+        }
       } else {
-        fill(255, 32);
+        if (rev === false) {
+          fill(255, 32);
+        } else {
+          fill(0);
+        }
       }
       noStroke();
 
@@ -85,5 +94,12 @@ function keyPressed() {
   // }
   if (key === "s") {
     saveCanvas("lanting", "jpg");
+  }
+  if (key === "b") {
+    if (rev === false) {
+      rev = true;
+    } else {
+      rev = false;
+    }
   }
 }
