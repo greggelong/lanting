@@ -7,7 +7,7 @@ let vScale; // global video scaling variable
 let greyscale = [0, 32, 64, 96, 128, 160, 192, 224, 255];
 let myimg;
 let cnv;
-let rev = false;
+let rev = true;
 
 function preload() {
   myimg = loadImage("lanting2.jpg");
